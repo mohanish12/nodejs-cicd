@@ -1,0 +1,21 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-sample-deployment
+  labels:
+    app: nodejs-sample
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs-sample
+  template:
+    metadata:
+      labels:
+        app:nodejs-sample
+    spec:
+      containers:
+      - name: nodejs-sample
+        image: mohanish12/sample-repo:latest
+        ports:
+        - containerPort: 80
